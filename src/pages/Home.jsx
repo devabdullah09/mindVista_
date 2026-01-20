@@ -464,18 +464,6 @@ const Home = () => {
         data-animate
         className="py-32 bg-white relative overflow-hidden"
       >
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `radial-gradient(circle at 25% 25%, #F8BE28 2px, transparent 2px),
-                             radial-gradient(circle at 75% 75%, #F8BE28 1px, transparent 1px)`,
-              backgroundSize: "50px 50px",
-            }}
-          ></div>
-        </div>
-
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <div

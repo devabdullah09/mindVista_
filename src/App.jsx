@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Services from './pages/Services'
 import Portfolio from './pages/Portfolio'
+import ProjectDetail from './pages/ProjectDetail'
 import Contact from './pages/Contact'
 import WebDesign from './pages/services/WebDesign'
 import WebDevelopment from './pages/services/WebDevelopment'
@@ -27,6 +28,7 @@ function App() {
           <Route path="/services/seo" element={<SEO />} />
           <Route path="/services/content-writing" element={<ContentWriting />} />
           <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/project/:category/:id" element={<ProjectDetail />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </Layout>

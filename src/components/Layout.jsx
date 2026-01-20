@@ -1,11 +1,9 @@
 import { Link, useLocation } from 'react-router-dom'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 
 const Layout = ({ children }) => {
   const location = useLocation()
-  const [isServicesOpen, setIsServicesOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const dropdownRef = useRef(null)
 
   const isActive = (path) => {
     return location.pathname === path || location.pathname.startsWith(path + '/')
@@ -27,23 +25,8 @@ const Layout = ({ children }) => {
     { path: '/services/content-writing', label: 'Content Writing' },
   ]
 
-  // Close dropdown when clicking outside
+  // Close mobile menu when route changes
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsServicesOpen(false)
-      }
-    }
-
-    document.addEventListener('mousedown', handleClickOutside)
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
-  }, [])
-
-  // Close dropdown when route changes
-  useEffect(() => {
-    setIsServicesOpen(false)
     setIsMobileMenuOpen(false)
   }, [location.pathname])
 
@@ -92,61 +75,17 @@ const Layout = ({ children }) => {
                 </Link>
               ))}
 
-              {/* Services Dropdown */}
-              <div className="relative" ref={dropdownRef}>
-                <button
-                  onClick={() => setIsServicesOpen(!isServicesOpen)}
-                  className={`px-4 py-2 text-sm font-semibold transition-colors duration-300 flex items-center space-x-1 ${
-                    isActive('/services')
-                      ? 'text-[#F8BE28]'
-                      : 'text-gray-700 hover:text-[#F8BE28]'
-                  }`}
-                >
-                  <span>Services</span>
-                  <svg
-                    className={`w-4 h-4 transform transition-transform duration-300 ${
-                      isServicesOpen ? 'rotate-180' : ''
-                    }`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-                </button>
-
-                {/* Dropdown Menu */}
-                {isServicesOpen && (
-                  <div className="absolute top-full left-0 mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-2xl overflow-hidden animate-fade-in">
-                    <div className="py-2">
-                      {serviceLinks.map((service) => (
-                        <Link
-                          key={service.path}
-                          to={service.path}
-                          className={`block px-6 py-3 text-sm font-medium transition-all duration-300 hover:bg-[#F8BE28] hover:text-black ${
-                            isActive(service.path)
-                              ? 'bg-[#F8BE28]/20 text-[#F8BE28]'
-                              : 'text-gray-700'
-                          }`}
-                        >
-                          {service.label}
-                        </Link>
-                      ))}
-                      <Link
-                        to="/services"
-                        className="block px-6 py-3 text-sm font-medium text-[#F8BE28] hover:bg-[#F8BE28] hover:text-black transition-all duration-300 border-t border-gray-200"
-                      >
-                        View All Services →
-                      </Link>
-                    </div>
-                  </div>
-                )}
-              </div>
+              {/* Services Link (No Dropdown) */}
+              <Link
+                to="/services"
+                className={`px-4 py-2 text-sm font-semibold transition-colors duration-300 ${
+                  isActive('/services')
+                    ? 'text-[#F8BE28]'
+                    : 'text-gray-700 hover:text-[#F8BE28]'
+                }`}
+              >
+                Services
+              </Link>
 
               {/* Contact Icons */}
               <div className="flex items-center space-x-4 ml-4">
@@ -260,56 +199,16 @@ const Layout = ({ children }) => {
                   {link.label}
                 </Link>
               ))}
-              <div className="px-4 py-2">
-                <button
-                  onClick={() => setIsServicesOpen(!isServicesOpen)}
-                  className={`w-full flex items-center justify-between px-4 py-3 text-sm font-semibold transition-colors rounded-lg ${
-                    isActive('/services')
-                      ? 'text-[#F8BE28] bg-yellow-50'
-                      : 'text-gray-700 hover:text-[#F8BE28] hover:bg-gray-50'
-                  }`}
-                >
-                  <span>Services</span>
-                  <svg
-                    className={`w-4 h-4 transform transition-transform ${
-                      isServicesOpen ? 'rotate-180' : ''
-                    }`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-                </button>
-                {isServicesOpen && (
-                  <div className="mt-2 ml-4 space-y-2">
-                    {serviceLinks.map((service) => (
-                      <Link
-                        key={service.path}
-                        to={service.path}
-                        className={`block px-4 py-2 text-sm rounded-lg transition-colors ${
-                          isActive(service.path)
-                            ? 'text-[#F8BE28] bg-yellow-50'
-                            : 'text-gray-600 hover:text-[#F8BE28] hover:bg-gray-50'
-                        }`}
-                      >
-                        {service.label}
-                      </Link>
-                    ))}
-                    <Link
-                      to="/services"
-                      className="block px-4 py-2 text-sm text-[#F8BE28] hover:bg-gray-50 rounded-lg"
-                    >
-                      View All Services →
-                    </Link>
-                  </div>
-                )}
-              </div>
+              <Link
+                to="/services"
+                className={`block px-4 py-3 text-sm font-semibold transition-colors ${
+                  isActive('/services')
+                    ? 'text-[#F8BE28] bg-yellow-50'
+                    : 'text-gray-700 hover:text-[#F8BE28] hover:bg-gray-50'
+                }`}
+              >
+                Services
+              </Link>
             </div>
           )}
         </div>
