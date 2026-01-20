@@ -166,12 +166,12 @@ const AppDevelopment = () => {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 leading-tight">
+              <h1 className="text-2xl md:text-3xl font-bold text-gray-900 leading-tight">
                 Innovative,{" "}
                 <span className="text-[#F8BE28]">Cross-Platform</span> Apps for
                 Android and iOS Solutions
               </h1>
-              <p className="text-xl text-gray-700 leading-relaxed">
+              <p className="text-base md:text-lg text-gray-600 leading-relaxed">
                 We bring your app ideas to life with robust, user-friendly, and
                 scalable mobile applications. Whether you're building a business
                 tool, e-commerce platform, or a custom app, our expert team

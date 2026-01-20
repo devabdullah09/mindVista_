@@ -139,11 +139,11 @@ const WebDesign = () => {
                   Web Designing Services
                 </span>
               </div>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 leading-tight">
+              <h1 className="text-2xl md:text-3xl font-bold text-gray-900 leading-tight">
                 Transforming Ideas Into{" "}
                 <span className="text-[#F8BE28]">Stunning Designs</span>
               </h1>
-              <p className="text-xl text-gray-700 leading-relaxed">
+              <p className="text-base md:text-lg text-gray-600 leading-relaxed">
                 Your digital presence deserves to stand out with visually
                 appealing and user-friendly designs. Our web designing services
                 are tailored to deliver designs that captivate your audience and

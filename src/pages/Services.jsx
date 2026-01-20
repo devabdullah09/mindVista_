@@ -58,7 +58,7 @@ const Services = () => {
       link: "/services/web-development",
       icon: (
         <svg
-          className="w-16 h-16"
+          className="w-8 h-8"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -85,7 +85,7 @@ const Services = () => {
       link: "/services/app-development",
       icon: (
         <svg
-          className="w-16 h-16"
+          className="w-8 h-8"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -112,7 +112,7 @@ const Services = () => {
       link: "/services/branding",
       icon: (
         <svg
-          className="w-16 h-16"
+          className="w-8 h-8"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -139,7 +139,7 @@ const Services = () => {
       link: "/services/seo",
       icon: (
         <svg
-          className="w-16 h-16"
+          className="w-8 h-8"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -166,7 +166,7 @@ const Services = () => {
       link: "/services/content-writing",
       icon: (
         <svg
-          className="w-16 h-16"
+          className="w-8 h-8"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -191,27 +191,40 @@ const Services = () => {
   return (
     <div className="min-h-screen bg-white text-gray-900 overflow-x-hidden">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-50 via-white to-yellow-50/30">
+      <section className="relative py-24 md:py-32 flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-50 via-white to-yellow-50/30">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-20 left-10 w-64 h-64 bg-[#F8BE28]/10 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-20 right-10 w-96 h-96 bg-yellow-200/20 rounded-full blur-3xl animate-pulse animation-delay-2000"></div>
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="space-y-8">
-            <div className="inline-block mb-6">
-              <span className="bg-[#F8BE28] text-black px-8 py-3 rounded-full text-sm font-bold tracking-wide uppercase shadow-lg">
-                Our Services
-              </span>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Side - Image */}
+            <div className="order-2 lg:order-1">
+              <img
+                src="/images/other/service-3274892_1920.jpg"
+                alt="Services"
+                className="w-full h-auto rounded-2xl shadow-2xl object-cover"
+                style={{ maxHeight: '500px' }}
+              />
             </div>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 leading-tight">
-              Comprehensive{" "}
-              <span className="text-[#F8BE28]">Digital Solutions</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
-              Discover our range of services designed to transform your business
-              and elevate your digital presence
-            </p>
+            
+            {/* Right Side - Text */}
+            <div className="order-1 lg:order-2 space-y-6">
+              <div className="inline-block">
+                <span className="bg-[#F8BE28] text-black px-6 py-2 rounded-full text-sm font-bold tracking-wide uppercase shadow-lg">
+                  Our Services
+                </span>
+              </div>
+              <h1 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
+                Comprehensive{" "}
+                <span className="text-[#F8BE28]">Digital Solutions</span>
+              </h1>
+              <p className="text-base md:text-lg text-gray-600 leading-relaxed">
+                Discover our range of services designed to transform your business
+                and elevate your digital presence
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -246,30 +259,51 @@ const Services = () => {
                 }`}
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="relative bg-gradient-to-br from-white to-gray-50 rounded-3xl p-8 shadow-xl border-2 border-gray-200 h-full transition-all duration-500 hover:border-[#F8BE28] hover:shadow-2xl hover:scale-105 hover:-translate-y-2">
-                  <div className="w-20 h-20 bg-gradient-to-br from-[#F8BE28] to-yellow-400 rounded-2xl flex items-center justify-center text-black mb-6 transform group-hover:rotate-12 group-hover:scale-110 transition-all duration-500 shadow-lg">
+                <div className="relative bg-gradient-to-br from-white to-gray-50 rounded-3xl p-6 shadow-xl border-2 border-gray-200 h-full transition-all duration-500 hover:border-[#F8BE28] hover:shadow-2xl hover:scale-105 hover:-translate-y-2 overflow-hidden flex flex-col">
+                  {/* Service Image Background */}
+                  <div className="absolute top-0 right-0 w-32 h-32 opacity-10 group-hover:opacity-20 transition-opacity duration-500">
+                    <img
+                      src={`/images/other/${index === 0 ? 'hero-image-1.jpg' : index === 1 ? 'hero-image-2.jpg' : index === 2 ? 'hero-image-3.jpg' : index === 3 ? 'sketchbook-4637459_1920.jpg' : index === 4 ? 'ai-generated-8896730_1920.jpg' : 'keyboard-254582_1920.jpg'}`}
+                      alt={service.title}
+                      className="w-full h-full object-cover rounded-bl-3xl"
+                      onError={(e) => {
+                        e.target.style.display = 'none'
+                      }}
+                    />
+                  </div>
+                  
+                  {/* Icon */}
+                  <div className="w-14 h-14 bg-gradient-to-br from-[#F8BE28] to-yellow-400 rounded-xl flex items-center justify-center text-black mb-4 transform group-hover:rotate-12 group-hover:scale-110 transition-all duration-500 shadow-lg relative z-10">
                     {service.icon}
                   </div>
-                  <h3 className="text-3xl font-black text-gray-900 mb-4 group-hover:text-[#F8BE28] transition-colors duration-300">
+                  
+                  {/* Title */}
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#F8BE28] transition-colors duration-300 relative z-10">
                     {service.title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed mb-6">
+                  
+                  {/* Description */}
+                  <p className="text-sm text-gray-600 leading-relaxed mb-4 flex-grow relative z-10">
                     {service.description}
                   </p>
-                  <div className="flex flex-wrap gap-2 mb-6">
+                  
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-2 mb-4 relative z-10">
                     {service.features.map((feature, idx) => (
                       <span
                         key={idx}
-                        className="px-4 py-2 bg-[#F8BE28]/10 text-[#F8BE28] rounded-full text-sm font-semibold border border-[#F8BE28]/30"
+                        className="px-3 py-1.5 bg-[#F8BE28]/10 text-[#F8BE28] rounded-full text-xs font-semibold border border-[#F8BE28]/30"
                       >
                         {feature}
                       </span>
                     ))}
                   </div>
-                  <div className="flex items-center text-[#F8BE28] font-bold group-hover:translate-x-2 transition-transform duration-300">
+                  
+                  {/* Learn More - Pushed to bottom */}
+                  <div className="flex items-center text-[#F8BE28] font-bold group-hover:translate-x-2 transition-transform duration-300 mt-auto relative z-10">
                     Learn More
                     <svg
-                      className="ml-2 w-5 h-5"
+                      className="ml-2 w-4 h-4"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -282,6 +316,7 @@ const Services = () => {
                       />
                     </svg>
                   </div>
+                  
                   <div className="absolute inset-0 bg-gradient-to-br from-[#F8BE28]/5 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </div>
               </Link>

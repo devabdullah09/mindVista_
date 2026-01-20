@@ -166,13 +166,13 @@ const ContentWriting = () => {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 leading-tight">
+              <h1 className="text-2xl md:text-3xl font-bold text-gray-900 leading-tight">
                 Crafting Words That{" "}
                 <span className="text-[#F8BE28]">Inspire,</span>{" "}
                 <span className="text-[#F8BE28]">Engage,</span> and{" "}
                 <span className="text-[#F8BE28]">Convert</span>
               </h1>
-              <p className="text-xl text-gray-700 leading-relaxed">
+              <p className="text-base md:text-lg text-gray-600 leading-relaxed">
                 The right words can transform your business by connecting with
                 your audience and driving action. Our content writing services
                 are designed to deliver high-quality, engaging, and SEO-friendly

@@ -986,3 +986,548 @@ video {
     padding: 2rem;
   }
 }
+
+/* Portfolio Page Specific Styles */
+
+/* Portfolio Card */
+.portfolio-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.portfolio-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(248, 190, 40, 0.1) 0%, rgba(248, 190, 40, 0.05) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+}
+
+.portfolio-card:hover::before {
+  opacity: 1;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(248, 190, 40, 0.2), 0 0 0 1px rgba(248, 190, 40, 0.1);
+}
+
+.portfolio-image-container {
+  position: relative;
+  overflow: hidden;
+  height: 250px;
+  background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+}
+
+.portfolio-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio-card:hover .portfolio-image {
+  transform: scale(1.15) rotate(2deg);
+}
+
+.portfolio-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent 0%, rgba(248, 190, 40, 0.3) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 2;
+}
+
+.portfolio-card:hover .portfolio-overlay {
+  opacity: 1;
+}
+
+/* Category Button */
+.category-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.category-button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(248, 190, 40, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.category-button:hover::after {
+  width: 300px;
+  height: 300px;
+}
+
+.category-button.active {
+  background: linear-gradient(135deg, #F8BE28 0%, #FFD700 100%);
+  color: #000;
+  box-shadow: 0 8px 24px rgba(248, 190, 40, 0.3);
+  transform: scale(1.05);
+}
+
+.category-button.active::after {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Portfolio Tag */
+.portfolio-tag {
+  display: inline-block;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-tag::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.portfolio-tag:hover::before {
+  left: 100%;
+}
+
+.portfolio-tag:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Portfolio Grid Animation */
+.portfolio-grid-item {
+  opacity: 0;
+  animation: portfolioFadeIn 0.6s ease-out forwards;
+}
+
+@keyframes portfolioFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Category Icon Animation */
+.category-icon {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.category-button:hover .category-icon {
+  transform: rotate(360deg) scale(1.1);
+}
+
+.category-button.active .category-icon {
+  transform: scale(1.15);
+  animation: iconPulse 2s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+  0%, 100% {
+    transform: scale(1.15);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+}
+
+/* Portfolio Hero Section */
+.portfolio-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(248, 190, 40, 0.1) 0%, transparent 70%);
+  animation: rotateGradient 20s linear infinite;
+}
+
+@keyframes rotateGradient {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+/* View More Button */
+.portfolio-view-more {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.portfolio-view-more::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.portfolio-view-more:hover::before {
+  left: 100%;
+}
+
+.portfolio-view-more:hover {
+  transform: translateX(5px);
+  box-shadow: 0 8px 16px rgba(248, 190, 40, 0.3);
+}
+
+/* Stagger Animation Delays */
+.portfolio-stagger-1 {
+  animation-delay: 0.1s;
+}
+
+.portfolio-stagger-2 {
+  animation-delay: 0.2s;
+}
+
+.portfolio-stagger-3 {
+  animation-delay: 0.3s;
+}
+
+.portfolio-stagger-4 {
+  animation-delay: 0.4s;
+}
+
+.portfolio-stagger-5 {
+  animation-delay: 0.5s;
+}
+
+.portfolio-stagger-6 {
+  animation-delay: 0.6s;
+}
+
+/* Contact Page Specific Styles */
+
+/* Contact Info Card */
+.contact-info-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contact-info-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(248, 190, 40, 0.1), transparent);
+  transition: left 0.6s ease;
+}
+
+.contact-info-card:hover::before {
+  left: 100%;
+}
+
+/* Creative Contact Info Card */
+.contact-info-card-creative {
+  position: relative;
+  overflow: hidden;
+  transform-style: preserve-3d;
+}
+
+.contact-info-card-creative::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(248, 190, 40, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.contact-info-card-creative:hover::after {
+  opacity: 1;
+}
+
+.contact-info-item {
+  opacity: 0;
+  animation: contactFadeIn 0.8s ease-out forwards;
+}
+
+@keyframes contactFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Social Link Animation */
+.social-link {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.social-link::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(248, 190, 40, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.4s ease, height 0.4s ease;
+}
+
+.social-link:hover::before {
+  width: 100px;
+  height: 100px;
+}
+
+.social-link:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Creative Social Link */
+.social-link-creative {
+  position: relative;
+  overflow: hidden;
+  transform-style: preserve-3d;
+}
+
+.social-link-creative::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(45deg, transparent, rgba(248, 190, 40, 0.5), transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.social-link-creative:hover::before {
+  opacity: 1;
+  animation: rotateBorder 2s linear infinite;
+}
+
+@keyframes rotateBorder {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Form Input Focus Effect */
+.form-group input:focus,
+.form-group textarea:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(248, 190, 40, 0.15);
+}
+
+/* Form Input Animation */
+.form-group {
+  position: relative;
+}
+
+.form-group input,
+.form-group textarea {
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #F8BE28;
+  box-shadow: 0 0 0 3px rgba(248, 190, 40, 0.1);
+}
+
+/* Creative Form Group */
+.form-group-creative {
+  position: relative;
+}
+
+.form-group-creative::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, transparent, #F8BE28, transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.form-group-creative:focus-within::before {
+  opacity: 1;
+}
+
+/* Creative Form Input */
+.form-input-creative {
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-input-creative:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(248, 190, 40, 0.2);
+}
+
+.form-input-creative::placeholder {
+  transition: opacity 0.3s ease;
+}
+
+.form-input-creative:focus::placeholder {
+  opacity: 0.5;
+}
+
+/* Creative Contact Form */
+.contact-form-creative {
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.contact-form-creative::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(135deg, #F8BE28, yellow, #F8BE28);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: -1;
+}
+
+.contact-form-creative:hover::before {
+  opacity: 0.3;
+  animation: borderGlow 3s ease-in-out infinite;
+}
+
+@keyframes borderGlow {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+/* Contact Submit Button */
+.contact-submit-button {
+  position: relative;
+  overflow: hidden;
+  transform-style: preserve-3d;
+}
+
+.contact-submit-button::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.3) 50%, transparent 70%);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.contact-submit-button:hover::after {
+  transform: translateX(100%);
+}
+
+/* Contact Image Hover Effect */
+.contact-info-item img {
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contact-info-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Contact Form Slide In */
+@keyframes contactFormSlide {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive adjustments for contact page */
+@media (max-width: 768px) {
+  .contact-info-card {
+    padding: 1.5rem;
+  }
+  
+  .contact-info-card .w-14 {
+    width: 3rem;
+    height: 3rem;
+  }
+  
+  .contact-info-card .w-7 {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
