@@ -328,8 +328,7 @@ const Home = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-[#F8BE28]/10 via-transparent to-blue-500/10"></div>
         </div>
 
-        {/* Particle System */}
-        <ParticleSystem />
+        
 
         {/* Floating geometric shapes - simplified */}
         <div className="absolute inset-0 overflow-hidden">

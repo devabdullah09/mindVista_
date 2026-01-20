@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import WhatsAppButton from './WhatsAppButton'
 
 const Layout = ({ children }) => {
   const location = useLocation()
@@ -32,8 +33,8 @@ const Layout = ({ children }) => {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="bg-white shadow-md sticky top-0 z-50 border-b border-gray-200">
+      {/* Professional Navigation */}
+      <nav className="font-header bg-white sticky top-0 z-50 border-b border-gray-100 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
@@ -42,9 +43,8 @@ const Layout = ({ children }) => {
                 <img
                   src="/images/logo.png"
                   alt="MindVista Logo"
-                  className="h-16 w-auto transform group-hover:scale-105 transition-transform duration-300"
+                  className="h-16 w-auto transition-transform duration-300 group-hover:scale-105"
                   onError={(e) => {
-                    // Fallback to text logo if image fails
                     e.target.style.display = 'none'
                     const fallback = e.target.nextSibling
                     if (fallback) fallback.style.display = 'flex'
@@ -59,82 +59,45 @@ const Layout = ({ children }) => {
               </Link>
             </div>
 
-            {/* Desktop Navigation Links */}
-            <div className="hidden md:flex items-center space-x-8">
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-1">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`px-4 py-2 text-sm font-semibold transition-colors duration-300 ${
+                  className={`relative px-4 py-2 text-sm font-bold tracking-wide rounded-lg transition-all duration-200 ${
                     isActive(link.path)
-                      ? 'text-[#F8BE28]'
-                      : 'text-gray-700 hover:text-[#F8BE28]'
+                      ? 'text-gray-900 bg-[#F8BE28]/10'
+                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
                   }`}
                 >
                   {link.label}
+                  {isActive(link.path) && (
+                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 bg-[#F8BE28] rounded-full"></div>
+                  )}
                 </Link>
               ))}
 
-              {/* Services Link (No Dropdown) */}
               <Link
                 to="/services"
-                className={`px-4 py-2 text-sm font-semibold transition-colors duration-300 ${
+                className={`relative px-4 py-2 text-sm font-bold tracking-wide rounded-lg transition-all duration-200 ${
                   isActive('/services')
-                    ? 'text-[#F8BE28]'
-                    : 'text-gray-700 hover:text-[#F8BE28]'
+                    ? 'text-gray-900 bg-[#F8BE28]/10'
+                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
                 }`}
               >
                 Services
+                {isActive('/services') && (
+                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 bg-[#F8BE28] rounded-full"></div>
+                )}
               </Link>
-
-              {/* Contact Icons */}
-              <div className="flex items-center space-x-4 ml-4">
-                <a
-                  href="mailto:mindvista100@gmail.com"
-                  className="w-10 h-10 flex items-center justify-center border border-gray-300 rounded-lg text-gray-700 hover:bg-[#F8BE28] hover:border-[#F8BE28] hover:text-black transition-all duration-300"
-                  aria-label="Email"
-                >
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                    />
-                  </svg>
-                </a>
-                <a
-                  href="tel:+923098391932"
-                  className="w-10 h-10 flex items-center justify-center border border-gray-300 rounded-lg text-gray-700 hover:bg-[#F8BE28] hover:border-[#F8BE28] hover:text-black transition-all duration-300"
-                  aria-label="Phone"
-                >
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                    />
-                  </svg>
-                </a>
-              </div>
             </div>
 
-            {/* Mobile menu button */}
-            <div className="md:hidden flex items-center space-x-4">
+            {/* Contact Actions */}
+            <div className="hidden md:flex items-center space-x-3">
               <a
                 href="mailto:mindvista100@gmail.com"
-                className="w-10 h-10 flex items-center justify-center border border-gray-300 rounded-lg text-gray-700"
+                className="p-2.5 text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-all duration-200"
                 aria-label="Email"
               >
                 <svg
@@ -151,10 +114,55 @@ const Layout = ({ children }) => {
                   />
                 </svg>
               </a>
+
+              <a
+                href="tel:+923098391932"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#F8BE28] hover:bg-[#e6a821] text-gray-900 font-bold text-sm rounded-lg transition-colors duration-200"
+                aria-label="Phone"
+              >
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                  />
+                </svg>
+                <span>Call Us</span>
+              </a>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <div className="md:hidden flex items-center space-x-2">
+              <a
+                href="mailto:mindvista100@gmail.com"
+                className="p-2.5 text-gray-600 hover:bg-gray-50 rounded-lg"
+                aria-label="Email"
+              >
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  />
+                </svg>
+              </a>
+
               <button
                 type="button"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none"
+                className="p-2.5 text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-colors duration-200"
                 aria-label="Main menu"
               >
                 <svg
@@ -185,30 +193,41 @@ const Layout = ({ children }) => {
 
           {/* Mobile Menu */}
           {isMobileMenuOpen && (
-            <div className="md:hidden border-t border-gray-200 py-4 animate-fade-in bg-white">
-              {navLinks.map((link) => (
+            <div className="md:hidden border-t border-gray-100 py-4 animate-fade-in">
+              <div className="space-y-1">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    className={`block px-4 py-2.5 text-sm font-bold tracking-wide rounded-lg transition-colors ${
+                      isActive(link.path)
+                        ? 'text-gray-900 bg-[#F8BE28]/10'
+                        : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
                 <Link
-                  key={link.path}
-                  to={link.path}
-                  className={`block px-4 py-3 text-sm font-semibold transition-colors ${
-                    isActive(link.path)
-                      ? 'text-[#F8BE28] bg-yellow-50'
-                      : 'text-gray-700 hover:text-[#F8BE28] hover:bg-gray-50'
+                  to="/services"
+                  className={`block px-4 py-2.5 text-sm font-bold tracking-wide rounded-lg transition-colors ${
+                    isActive('/services')
+                      ? 'text-gray-900 bg-[#F8BE28]/10'
+                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
                   }`}
                 >
-                  {link.label}
+                  Services
                 </Link>
-              ))}
-              <Link
-                to="/services"
-                className={`block px-4 py-3 text-sm font-semibold transition-colors ${
-                  isActive('/services')
-                    ? 'text-[#F8BE28] bg-yellow-50'
-                    : 'text-gray-700 hover:text-[#F8BE28] hover:bg-gray-50'
-                }`}
-              >
-                Services
-              </Link>
+
+                <div className="pt-4 px-4">
+                  <a
+                    href="tel:+923098391932"
+                    className="block w-full py-2.5 bg-[#F8BE28] hover:bg-[#e6a821] text-gray-900 font-bold text-sm text-center rounded-lg transition-colors"
+                  >
+                    Call Us
+                  </a>
+                </div>
+              </div>
             </div>
           )}
         </div>
@@ -325,6 +344,9 @@ const Layout = ({ children }) => {
           </div>
         </div>
       </footer>
+
+      {/* WhatsApp Floating Button */}
+      <WhatsAppButton />
     </div>
   )
 }
