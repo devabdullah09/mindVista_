@@ -65,7 +65,7 @@ const Layout = ({ children }) => {
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`relative px-4 py-2 text-sm font-bold tracking-wide rounded-lg transition-all duration-200 ${
+                  className={`relative px-4 py-2 text-base font-bold rounded-lg transition-all duration-200 ${
                     isActive(link.path)
                       ? 'text-gray-900 bg-[#F8BE28]/10'
                       : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
@@ -80,7 +80,7 @@ const Layout = ({ children }) => {
 
               <Link
                 to="/services"
-                className={`relative px-4 py-2 text-sm font-bold tracking-wide rounded-lg transition-all duration-200 ${
+                className={`relative px-4 py-2 text-base font-bold rounded-lg transition-all duration-200 ${
                   isActive('/services')
                     ? 'text-gray-900 bg-[#F8BE28]/10'
                     : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
@@ -96,7 +96,7 @@ const Layout = ({ children }) => {
             {/* Contact Actions */}
             <div className="hidden md:flex items-center space-x-3">
               <a
-                href="mailto:mindvista100@gmail.com"
+                href="mailto:business@mindvista.tech"
                 className="p-2.5 text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-all duration-200"
                 aria-label="Email"
               >
@@ -117,7 +117,7 @@ const Layout = ({ children }) => {
 
               <a
                 href="tel:+923098391932"
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#F8BE28] hover:bg-[#e6a821] text-gray-900 font-bold text-sm rounded-lg transition-colors duration-200"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#F8BE28] hover:bg-[#e6a821] text-gray-900 font-bold text-base rounded-lg transition-colors duration-200"
                 aria-label="Phone"
               >
                 <svg
@@ -140,7 +140,7 @@ const Layout = ({ children }) => {
             {/* Mobile Menu Button */}
             <div className="md:hidden flex items-center space-x-2">
               <a
-                href="mailto:mindvista100@gmail.com"
+                href="mailto:business@mindvista.tech"
                 className="p-2.5 text-gray-600 hover:bg-gray-50 rounded-lg"
                 aria-label="Email"
               >
@@ -199,7 +199,7 @@ const Layout = ({ children }) => {
                   <Link
                     key={link.path}
                     to={link.path}
-                    className={`block px-4 py-2.5 text-sm font-bold tracking-wide rounded-lg transition-colors ${
+                    className={`block px-4 py-2.5 text-base font-bold rounded-lg transition-colors ${
                       isActive(link.path)
                         ? 'text-gray-900 bg-[#F8BE28]/10'
                         : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
@@ -210,7 +210,7 @@ const Layout = ({ children }) => {
                 ))}
                 <Link
                   to="/services"
-                  className={`block px-4 py-2.5 text-sm font-bold tracking-wide rounded-lg transition-colors ${
+                  className={`block px-4 py-2.5 text-base font-bold rounded-lg transition-colors ${
                     isActive('/services')
                       ? 'text-gray-900 bg-[#F8BE28]/10'
                       : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
@@ -222,7 +222,7 @@ const Layout = ({ children }) => {
                 <div className="pt-4 px-4">
                   <a
                     href="tel:+923098391932"
-                    className="block w-full py-2.5 bg-[#F8BE28] hover:bg-[#e6a821] text-gray-900 font-bold text-sm text-center rounded-lg transition-colors"
+                    className="block w-full py-2.5 bg-[#F8BE28] hover:bg-[#e6a821] text-gray-900 font-bold text-base text-center rounded-lg transition-colors"
                   >
                     Call Us
                   </a>
@@ -309,13 +309,13 @@ const Layout = ({ children }) => {
               <ul className="space-y-2 text-xs text-gray-600">
                 <li>
                   <a
-                    href="mailto:mindvista100@gmail.com"
+                    href="mailto:business@mindvista.tech"
                     className="hover:text-[#F8BE28] transition-colors flex items-start space-x-2"
                   >
                     <svg className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
-                    <span>mindvista100@gmail.com</span>
+                    <span>business@mindvista.tech</span>
                   </a>
                 </li>
                 <li>
@@ -334,7 +334,7 @@ const Layout = ({ children }) => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
-                  <span>315 B, Phase 5 DHA, Lahore</span>
+                  <span>89 C, Punjab Housing Society Lahore</span>
                 </li>
               </ul>
             </div>
