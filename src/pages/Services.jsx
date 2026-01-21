@@ -126,12 +126,27 @@ const Services = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="relative py-16 md:py-20 bg-white overflow-hidden">
-        {/* Decorative Elements */}
-        <div className="absolute top-20 right-20 w-64 h-64 bg-[#F8BE28]/5 rounded-full blur-3xl"></div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      {/* Hero Section with Fixed Video Background */}
+      <section className="relative py-16 md:py-20 overflow-hidden">
+        {/* Fixed Video Background */}
+        <div className="fixed inset-0 z-0 pointer-events-none">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src="/images/home/acheivements.mp4" type="video/mp4" />
+          </video>
+          {/* Dark overlay for text readability */}
+          <div className="absolute inset-0 bg-black/60"></div>
+          {/* Gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#F8BE28]/20 via-transparent to-black/40"></div>
+        </div>
+
+        {/* Content - Above video */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Header */}
           <div className="flex items-center justify-between mb-16">
             <div>
@@ -139,25 +154,25 @@ const Services = () => {
                 <div className="w-1 h-12 bg-[#F8BE28]"></div>
                 <div>
                   <span className="text-xs font-bold text-[#F8BE28] uppercase tracking-wider">What We Do</span>
-                  <h1 className="text-3xl md:text-4xl font-black text-gray-900">Our Services</h1>
+                  <h1 className="text-3xl md:text-4xl font-black text-white drop-shadow-lg">Our Services</h1>
                 </div>
               </div>
-              <p className="text-sm text-gray-600 max-w-md">
+              <p className="text-sm text-gray-200 max-w-md drop-shadow">
                 Comprehensive digital solutions tailored to your needs
               </p>
             </div>
 
             {/* Service Count */}
             <div className="hidden md:block text-right">
-              <div className="text-5xl font-black text-[#F8BE28]">06</div>
-              <div className="text-xs text-gray-600 font-medium uppercase">Services</div>
+              <div className="text-5xl font-black text-[#F8BE28] drop-shadow-lg">06</div>
+              <div className="text-xs text-gray-200 font-medium uppercase">Services</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Zigzag Services Layout */}
-      <section className="pb-20">
+      <section className="relative pb-20 pt-16 z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {services.map((service, index) => {
             const isEven = index % 2 === 0;
@@ -180,7 +195,7 @@ const Services = () => {
                 <div className={`grid lg:grid-cols-2 gap-8 items-center ${!isEven ? 'lg:grid-flow-col-dense' : ''}`}>
                   {/* Visual Side */}
                   <div className={`relative ${!isEven ? 'lg:col-start-2' : ''}`}>
-                    <div className={`relative aspect-square rounded-3xl overflow-hidden shadow-xl`}>
+                    <div className={`relative aspect-square rounded-3xl overflow-hidden shadow-2xl backdrop-blur-sm bg-white/10 border border-white/20`}>
                       {/* Service Image */}
                       <img
                         src={service.image}
@@ -211,10 +226,10 @@ const Services = () => {
                   </div>
 
                   {/* Content Side */}
-                  <div className={`space-y-6 ${!isEven ? 'lg:col-start-1' : ''}`}>
+                  <div className={`space-y-6 ${!isEven ? 'lg:col-start-1' : ''} backdrop-blur-md bg-white/90 p-8 rounded-2xl shadow-2xl border border-white/20`}>
                     {/* Service Number */}
                     <div className="flex items-center gap-4">
-                      <div className="text-6xl font-black text-[#F8BE28]">{service.number}</div>
+                      <div className="text-6xl font-black text-[#F8BE28] drop-shadow-lg">{service.number}</div>
                       <div className="w-16 h-1 bg-[#F8BE28]"></div>
                     </div>
 
@@ -224,7 +239,7 @@ const Services = () => {
                     </h2>
 
                     {/* Description */}
-                    <p className="text-base text-gray-600 leading-relaxed">
+                    <p className="text-base text-gray-700 leading-relaxed">
                       {service.description}
                     </p>
 
@@ -235,7 +250,7 @@ const Services = () => {
                           <div className="w-5 h-5 rounded-full bg-[#F8BE28] flex items-center justify-center flex-shrink-0 mt-0.5">
                             <FaCheck className="w-2.5 h-2.5 text-white" />
                           </div>
-                          <span className="text-sm text-gray-700 font-medium">{feature}</span>
+                          <span className="text-sm text-gray-800 font-medium">{feature}</span>
                         </div>
                       ))}
                     </div>
@@ -253,7 +268,7 @@ const Services = () => {
 
                 {/* Divider Line (except last) */}
                 {index < services.length - 1 && (
-                  <div className="mt-16 border-t border-gray-200"></div>
+                  <div className="mt-16 border-t border-white/30"></div>
                 )}
               </div>
             );
@@ -265,10 +280,10 @@ const Services = () => {
       <section
         id="cta-section"
         data-animate
-        className="py-20 bg-gradient-to-br from-gray-50 to-white"
+        className="relative py-20 z-10"
       >
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white border-2 border-gray-200 rounded-3xl p-12 md:p-16 text-center shadow-xl">
+          <div className="backdrop-blur-lg bg-white/95 border-2 border-white/30 rounded-3xl p-12 md:p-16 text-center shadow-2xl">
             <div className="absolute top-0 left-0 right-0 h-1 bg-[#F8BE28]"></div>
             
             <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
