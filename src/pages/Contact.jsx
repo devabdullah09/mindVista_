@@ -14,10 +14,8 @@ const Contact = () => {
   })
   const [isVisible, setIsVisible] = useState(false)
   const [isFormVisible, setIsFormVisible] = useState(false)
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const contactRef = useRef(null)
   const formRef = useRef(null)
-  const heroRef = useRef(null)
 
   useEffect(() => {
     setIsVisible(true)
@@ -27,17 +25,6 @@ const Contact = () => {
     return () => clearTimeout(timer)
   }, [])
 
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      setMousePosition({
-        x: (e.clientX / window.innerWidth) * 100,
-        y: (e.clientY / window.innerHeight) * 100,
-      })
-    }
-
-    window.addEventListener('mousemove', handleMouseMove)
-    return () => window.removeEventListener('mousemove', handleMouseMove)
-  }, [])
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -82,7 +69,7 @@ const Contact = () => {
     {
       icon: HiOutlineLocationMarker,
       title: 'Location',
-      content: '315 B, Phase 5 DHA, Lahore',
+      content: '89 C, Punjab Housing Society Lahore',
       delay: '0.1s',
     },
     {
@@ -94,7 +81,7 @@ const Contact = () => {
     {
       icon: MdOutlineEmail,
       title: 'Email',
-      content: 'mindvista100@gmail.com',
+      content: 'business@mindvista.tech',
       delay: '0.3s',
     },
     {
@@ -107,75 +94,26 @@ const Contact = () => {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-yellow-50/20 to-white relative overflow-hidden">
-      {/* Animated Background Elements */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
-        <div
-          className="absolute w-96 h-96 bg-[#F8BE28]/5 rounded-full blur-3xl animate-float"
-          style={{
-            left: `${mousePosition.x * 0.5}%`,
-            top: `${mousePosition.y * 0.5}%`,
-            transition: 'all 0.3s ease-out',
-          }}
-        ></div>
-        <div className="absolute top-20 left-20 w-72 h-72 bg-yellow-400/10 rounded-full blur-3xl animate-float animation-delay-2000"></div>
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-[#F8BE28]/5 rounded-full blur-3xl animate-float animation-delay-4000"></div>
-        
-        {/* Geometric Shapes */}
-        <div className="absolute top-1/4 left-10 w-32 h-32 border-4 border-[#F8BE28]/20 rotate-45 animate-spin-slow"></div>
-        <div className="absolute bottom-1/4 right-10 w-24 h-24 border-4 border-yellow-400/20 rounded-full animate-pulse"></div>
-        <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-[#F8BE28]/10 rotate-12 animate-float"></div>
+    <div className="min-h-screen bg-white relative overflow-hidden">
+      {/* Fixed Video Background */}
+      <div className="fixed inset-0 z-0 pointer-events-none">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/images/home/acheivements.mp4" type="video/mp4" />
+        </video>
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 bg-black/60"></div>
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#F8BE28]/20 via-transparent to-black/40"></div>
       </div>
 
-      {/* Hero Section */}
-      <section ref={heroRef} className="relative py-24 md:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden z-10">
-        <div className="max-w-7xl mx-auto relative">
-          {/* Decorative Elements */}
-          <div className="absolute -top-20 -left-20 w-64 h-64 bg-gradient-to-br from-[#F8BE28]/20 to-transparent rounded-full blur-3xl"></div>
-          <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-gradient-to-tl from-yellow-400/20 to-transparent rounded-full blur-3xl"></div>
-
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left Side - Text */}
-            <div
-              className={`transition-all duration-1000 ${
-                isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
-              }`}
-            >
-              <div className="inline-block mb-6">
-                <span className="text-sm md:text-base font-semibold text-[#F8BE28] tracking-widest uppercase px-6 py-2 bg-gradient-to-r from-[#F8BE28]/10 via-yellow-50/50 to-[#F8BE28]/10 rounded-full border border-[#F8BE28]/20 backdrop-blur-sm">
-                  Get in Touch
-                </span>
-              </div>
-              <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Contact Us
-              </h1>
-              <p className="text-base md:text-lg text-gray-600 leading-relaxed">
-                We're here to help and answer any questions you may have. Whether you need more details about our services, want to discuss your project, or just have a quick inquiry, feel free to reach out.
-              </p>
-            </div>
-            
-            {/* Right Side - Image */}
-            <div
-              className={`transition-all duration-1000 delay-300 ${
-                isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
-              }`}
-            >
-              <img
-                src="/images/other/contact-image.jpg"
-                alt="Contact Us"
-                className="w-full h-auto rounded-2xl shadow-2xl object-cover"
-                style={{ maxHeight: '500px' }}
-                onError={(e) => {
-                  e.target.src = '/images/other/contact.jpg'
-                }}
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Main Content */}
-      <section ref={contactRef} className="relative py-12 px-4 sm:px-6 lg:px-8 pb-20 z-10 bg-gray-50">
+      <section ref={contactRef} className="relative py-16 md:py-20 px-4 sm:px-6 lg:px-8 pb-20 z-10">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-stretch">
             {/* Contact Information */}
@@ -189,7 +127,7 @@ const Contact = () => {
                 return (
                   <div
                     key={index}
-                    className="contact-info-item contact-info-card-creative group relative bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-2xl border-2 border-gray-200/50 hover:border-[#F8BE28] transition-all duration-500 hover:shadow-[0_20px_60px_rgba(248,190,40,0.3)] hover:-translate-y-2 overflow-hidden"
+                    className="contact-info-item contact-info-card-creative group relative backdrop-blur-md bg-white/90 rounded-3xl p-6 shadow-2xl border-2 border-white/20 hover:border-[#F8BE28] transition-all duration-500 hover:shadow-[0_20px_60px_rgba(248,190,40,0.3)] hover:-translate-y-2 overflow-hidden"
                     style={{ animationDelay: info.delay }}
                   >
                     {/* Animated Background Gradient */}
@@ -261,7 +199,7 @@ const Contact = () => {
 
               {/* Contact Image */}
               <div
-                className="contact-info-item mt-8 rounded-3xl overflow-hidden shadow-2xl border-2 border-gray-200/50 hover:border-[#F8BE28] transition-all duration-500 hover:shadow-[0_20px_60px_rgba(248,190,40,0.3)] group relative"
+                className="contact-info-item mt-8 rounded-3xl overflow-hidden shadow-2xl border-2 border-white/20 hover:border-[#F8BE28] transition-all duration-500 hover:shadow-[0_20px_60px_rgba(248,190,40,0.3)] group relative backdrop-blur-sm bg-white/10"
                 style={{ animationDelay: '0.5s' }}
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-[#F8BE28]/0 to-yellow-400/0 group-hover:from-[#F8BE28]/20 group-hover:to-yellow-400/20 transition-all duration-500 z-10"></div>
@@ -286,7 +224,7 @@ const Contact = () => {
                 isFormVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
               }`}
             >
-              <div className="contact-form-creative relative bg-white/90 backdrop-blur-md rounded-3xl p-8 md:p-10 shadow-2xl border-2 border-gray-200/50 hover:border-[#F8BE28] transition-all duration-500 overflow-hidden w-full flex flex-col h-full">
+              <div className="contact-form-creative relative backdrop-blur-lg bg-white/95 rounded-3xl p-8 md:p-10 shadow-2xl border-2 border-white/30 hover:border-[#F8BE28] transition-all duration-500 overflow-hidden w-full flex flex-col h-full">
                 {/* Decorative Background */}
                 <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-[#F8BE28]/10 to-transparent rounded-full blur-3xl -z-10"></div>
                 <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tl from-yellow-400/10 to-transparent rounded-full blur-3xl -z-10"></div>
