@@ -202,15 +202,39 @@ const ProjectDetail = () => {
 
                 {/* Action Buttons */}
                 <div className="space-y-3">
-                  <button className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-[#F8BE28] hover:bg-[#e6a821] text-white font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl group">
-                    <span>View Live Demo</span>
-                    <FaExternalLinkAlt className="w-4 h-4 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                  </button>
+                  {project.liveUrl ? (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-[#F8BE28] hover:bg-[#e6a821] text-white font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl group"
+                    >
+                      <span>View Live Demo</span>
+                      <FaExternalLinkAlt className="w-4 h-4 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                    </a>
+                  ) : (
+                    <button className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-[#F8BE28] hover:bg-[#e6a821] text-white font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl group">
+                      <span>View Live Demo</span>
+                      <FaExternalLinkAlt className="w-4 h-4 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                    </button>
+                  )}
 
-                  <button className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-gray-900 hover:bg-gray-800 text-white font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl group">
-                    <FaGithub className="w-5 h-5" />
-                    <span>View on GitHub</span>
-                  </button>
+                  {project.githubUrl ? (
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-gray-900 hover:bg-gray-800 text-white font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl group"
+                    >
+                      <FaGithub className="w-5 h-5" />
+                      <span>View on GitHub</span>
+                    </a>
+                  ) : (
+                    <button className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-gray-900 hover:bg-gray-800 text-white font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl group">
+                      <FaGithub className="w-5 h-5" />
+                      <span>View on GitHub</span>
+                    </button>
+                  )}
                 </div>
 
                 {/* Contact CTA */}

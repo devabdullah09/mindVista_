@@ -208,6 +208,88 @@ export const projectData = {
       ],
       tags: ["Next.js", "Firebase", "Tailwind CSS"],
     },
+    {
+      title: "Knox Primary Care",
+      category: "Web Development",
+      description:
+        "A modern, HIPAA-compliant website for Knox Primary Care Family Medicine clinic in West Knoxville, Tennessee. Features professional medical practice aesthetic with smooth animations, fully responsive design, and comprehensive clinic information including location, hours, patient registration, and insurance information.",
+      image: [
+        "/images/porfolio/knox1.png",
+        "/images/porfolio/knox2.png",
+        "/images/porfolio/knox3.png",
+      ],
+      tags: ["React", "TypeScript", "Tailwind CSS", "Framer Motion", "Firebase"],
+      liveUrl: "https://knox-primary-care.vercel.app/insurance",
+    },
+    {
+      title: "Kielo - Landing Page",
+      category: "Web Development",
+      description:
+        "A single-page landing page for Kielo, embodying calm confidence, restraint, and permanence. Features elegant design with minimal color palette, brand presence, reservation details, and integrated Stripe Checkout functionality.",
+      image: [
+        "/images/porfolio/keilo1.png",
+        "/images/porfolio/keilo2.png",
+        "/images/porfolio/keilo3.png",
+      ],
+      tags: ["React", "TypeScript", "Tailwind CSS", "Vite", "Stripe"],
+      liveUrl: "https://kielo.cc/",
+    },
+    {
+      title: "Kamar International",
+      category: "Web Development",
+      description:
+        "A professional website for Kamar International, a family textile manufacturing company. Features video hero section, product showcase, company history, and multilingual support. Built with Next.js for optimal performance and SEO.",
+      image: [
+        "/images/porfolio/kamar.png",
+        "/images/porfolio/kamar2.png",
+        "/images/porfolio/kamar3.png",
+      ],
+      tags: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+      liveUrl: "https://www.kamarint.com/",
+    },
+    {
+      title: "Beela - AI Voice Assistant",
+      category: "Web Development",
+      description:
+        "A beautiful, modern coming soon landing page for Beela AI Voice Assistant. Features clean minimal design with smooth animations, email collection form for beta tester waitlist, and vibrant blue branding with custom robot logo design.",
+      image: [
+        "/images/porfolio/beela.png",
+        "/images/porfolio/beela2.png",
+        "/images/porfolio/beela.png",
+      ],
+      tags: ["React", "TypeScript", "Vite", "Tailwind CSS"],
+      liveUrl: "https://beela-tau.vercel.app/",
+    },
+    {
+      title: "LooView - Public Toilet Finder",
+      category: "Web Development",
+      description:
+        "A Next.js application for rating and reviewing public toilets. Features Google Maps integration, photo uploads, AI-driven reviews, GPS auto-tagging, and a clean interface focused on hygiene and accessibility. Built with Firebase for real-time data and authentication.",
+      image: [
+        "/images/porfolio/looview1.png",
+        "/images/porfolio/looview2.png",
+        "/images/porfolio/looview3.png",
+        "/images/porfolio/looview4.png",
+        "/images/porfolio/looview5.png",
+      ],
+      tags: ["Next.js", "Firebase", "Google Maps API", "TypeScript", "Tailwind CSS"],
+      liveUrl: "https://looview.io/",
+    },
+    {
+      title: "Vesello - Wedding Invitation Platform",
+      category: "Web Development",
+      description:
+        "A beautiful, modern wedding invitation and RSVP system. Features multi-step RSVP process, gallery management, admin dashboard for managing events and guests, secure authentication, and image storage integration. Built with Next.js 15, Supabase, and Bunny.net for fast image delivery.",
+      image: [
+        "/images/porfolio/vesello1.png",
+        "/images/porfolio/vesello2.png",
+        "/images/porfolio/vesello3.png",
+        "/images/porfolio/vesello4.png",
+        "/images/porfolio/vesello5.png",
+      ],
+      tags: ["Next.js", "React", "TypeScript", "Supabase", "Tailwind CSS", "Bunny.net"],
+      liveUrl: "https://app.vesello.net/",
+    },
   ],
   blockchain: [
     {
@@ -325,4 +407,9 @@ export const tagColors = {
   "Tailwind CSS": "bg-cyan-100 text-cyan-800",
   Firestore: "bg-red-100 text-red-800",
   "Oculus SDK": "bg-indigo-100 text-indigo-800",
+  "Framer Motion": "bg-pink-100 text-pink-800",
+  "Google Maps API": "bg-red-100 text-red-800",
+  "Bunny.net": "bg-purple-100 text-purple-800",
+  Supabase: "bg-green-100 text-green-800",
+  Stripe: "bg-indigo-100 text-indigo-800",
 };
